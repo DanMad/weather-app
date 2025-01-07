@@ -1,0 +1,7 @@
+.grid__item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  width: 2.75rem;
+}

@@ -1,0 +1,112 @@
+.current-forecast {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--space-m);
+  margin: 0 0 var(--space-l);
+}
+
+.current-forecast__metadata {
+  opacity: 0;
+  translate: 0 var(--space-xl);
+  text-align: center;
+  transition:
+    opacity calc(var(--motion-step) * 6) linear,
+    translate calc(var(--motion-step) * 6) ease-out;
+}
+
+.ready .current-forecast__metadata {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.current-forecast__heading {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: initial;
+  line-height: var(--line-height-xl);
+}
+
+.current-forecast__metadata .current-forecast__heading {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: calc(var(--font-size-s) * 0.03);
+  line-height: var(--line-height-s);
+}
+
+.current-forecast__label {
+  display: block;
+  margin: 0;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: calc(var(--font-size-m) * 0.03);
+  line-height: var(--line-height-m);
+}
+
+.current-forecast__metadata .current-forecast__label {
+  font-size: var(--font-size-s);
+  letter-spacing: calc(var(--font-size-s) * 0.03);
+  line-height: var(--line-height-s);
+}
+
+.current-forecast .icon {
+  opacity: 0;
+  translate: 0 var(--space-xl);
+  transition:
+    opacity calc(var(--motion-step) * 6) linear calc(var(--motion-step) * 1),
+    translate calc(var(--motion-step) * 6) ease-out calc(var(--motion-step) * 1);
+}
+
+.current-forecast.ready .icon {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.current-forecast__summary {
+  opacity: 0;
+  translate: 0 var(--space-xl);
+  text-align: center;
+  transition:
+    opacity calc(var(--motion-step) * 6) linear calc(var(--motion-step) * 2),
+    translate calc(var(--motion-step) * 6) ease-out calc(var(--motion-step) * 2);
+}
+
+.ready .current-forecast__summary {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media only screen and (min-height: 53.5em) and (min-width: 58.5em) {
+  .current-forecast__metadata {
+    position: absolute;
+    bottom: calc(100% + var(--space-xl));
+    left: 50%;
+    translate: -50% var(--space-xl);
+  }
+
+  .ready .current-forecast__metadata {
+    opacity: 1;
+    translate: -50% 0;
+  }
+}
+
+@media only screen and (min-height: 64em) and (min-width: 58.5em) {
+  .current-forecast__metadata {
+    bottom: calc(100% + var(--space-xxl));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .current-forecast__metadata {
+    transition: none;
+  }
+
+  .current-forecast .icon {
+    transition: none;
+  }
+
+  .current-forecast__summary {
+    transition: none;
+  }
+}

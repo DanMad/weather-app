@@ -1,0 +1,81 @@
+.hourly-forecast {
+  opacity: 0;
+  translate: 0 var(--space-xxl);
+  height: 10rem;
+  margin: 0 0 var(--space-l);
+  transition:
+    opacity calc(var(--motion-step) * 6) linear calc(var(--motion-step) * 3),
+    translate calc(var(--motion-step) * 6) ease-out calc(var(--motion-step) * 3);
+}
+
+.hourly-forecast.ready {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.hourly-forecast__inner {
+  font-size: var(--font-size-m);
+  letter-spacing: calc(var(--font-size-m) * 0.03);
+  line-height: var(--line-height-m);
+  text-align: center;
+}
+
+.hourly-forecast .grid {
+  width: calc(100% + var(--space-m) * 2);
+  padding: 0 var(--space-m) var(--space-xl);
+  margin: 0 calc(var(--space-m) * -1);
+}
+
+.hourly-forecast .grid__item {
+  opacity: 0;
+  translate: 0 var(--space-xl);
+  transition:
+    opacity calc(var(--motion-step) * 6) linear,
+    translate calc(var(--motion-step) * 6) ease-out;
+}
+
+@for $i from 1 through 9 {
+  .hourly-forecast .grid__item:nth-of-type(#{$i}) {
+    transition-delay: calc(var(--motion-step) * #{$i + 3});
+  }
+}
+
+.hourly-forecast.ready .grid__item {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.hourly-forecast__label {
+  white-space: nowrap;
+}
+
+.hourly-forecast__value {
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+@media only screen and (min-width: 30.0625em) {
+  .hourly-forecast .grid {
+    width: calc(100% + var(--space-l) * 2);
+    padding: 0 var(--space-l) var(--space-xl);
+    margin: 0 calc(var(--space-l) * -1);
+  }
+}
+
+@media only screen and (min-width: 40.0625em) {
+  .hourly-forecast .grid {
+    width: 100%;
+    padding: 0 0 var(--space-xl);
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hourly-forecast {
+    transition: none;
+  }
+
+  .hourly-forecast .grid__item {
+    transition: none;
+  }
+}

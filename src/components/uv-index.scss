@@ -1,0 +1,26 @@
+.uv-index {
+  opacity: 0;
+  translate: 0 var(--space-xxl);
+  margin: 0 0 var(--space-s);
+  transition:
+    opacity calc(var(--motion-step) * 6) linear calc(var(--motion-step) * 1),
+    translate calc(var(--motion-step) * 6) ease-out calc(var(--motion-step) * 1);
+}
+
+.uv-index.ready {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.uv-index__inner {
+  padding: 0 var(--space-xxs);
+  font-size: var(--font-size-m);
+  letter-spacing: calc(var(--font-size-m) * 0.03);
+  line-height: var(--line-height-m);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uv-index {
+    transition: none;
+  }
+}

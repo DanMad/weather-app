@@ -1,0 +1,71 @@
+.range {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.range__value {
+  font-weight: var(--font-weight-medium);
+}
+
+.range__value:nth-of-type(1) {
+  text-align: right;
+}
+
+.range__track {
+  overflow: hidden;
+  position: relative;
+  height: 0.625rem;
+  width: calc(100% + var(--stroke-size-s));
+  padding: 0 calc(var(--stroke-size-s) * 0.5);
+  margin: 0 calc(var(--stroke-size-s) * -0.5);
+}
+
+.range__track::before {
+  content: '';
+  opacity: 0.15;
+  position: absolute;
+  top: 0.21875rem;
+  right: calc(var(--stroke-size-s) * 0.5);
+  left: calc(var(--stroke-size-s) * 0.5);
+  height: var(--stroke-size-m);
+  background: currentColor;
+}
+
+.range__fill {
+  opacity: 0;
+  position: relative;
+  top: 0.21875rem;
+  translate: calc(var(--space-xxl) * -1) 0;
+  height: var(--stroke-size-m);
+  background: currentColor;
+  transition:
+    opacity calc(var(--motion-step) * 6) linear,
+    translate calc(var(--motion-step) * 6) ease-out;
+}
+
+@for $i from 1 through 7 {
+  .daily-forecast__item:nth-of-type(#{$i}) .range__fill {
+    transition-delay: calc(var(--motion-step) * #{$i + 4});
+  }
+}
+
+.ready .range__fill {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.range__line {
+  position: absolute;
+  top: 50%;
+  translate: -50% -50%;
+  height: 0.625rem;
+  width: var(--stroke-size-s);
+  background: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .range__fill {
+    transition: none;
+  }
+}

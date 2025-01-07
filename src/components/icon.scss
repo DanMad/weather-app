@@ -1,0 +1,288 @@
+@keyframes levitate {
+  50% {
+    transform: translateY(var(--levitation));
+  }
+}
+
+@keyframes oscillate {
+  50% {
+    stroke-dashoffset: var(--oscillation);
+  }
+}
+
+@keyframes rev {
+  0% {
+    transform: rotate(60deg);
+  }
+  25% {
+    transform: rotate(-135deg);
+  }
+  50% {
+    transform: rotate(-135deg);
+  }
+  75% {
+    transform: rotate(70deg);
+  }
+  80% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(var(--rotation));
+  }
+}
+
+.icon {
+  --levitation: 2px;
+  --oscillation: -2;
+  --rotation: 360deg;
+
+  display: block;
+}
+
+@for $i from 1 through 26 {
+  // .grid__item:nth-of-type(#{$i}) .icon * {
+  :nth-of-type(#{$i}) .icon * {
+    animation-delay: calc(var(--motion-step) * #{($i - 1) * 2});
+  }
+}
+
+.icon--clear-day g {
+  animation: rotate calc(var(--motion-step) * 400) linear infinite;
+}
+
+.icon--clear-day path {
+  animation: oscillate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--clear-night path {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--cloudy-day > path {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--cloudy-day mask path {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--cloudy-day g g {
+  animation: rotate calc(var(--motion-step) * 400) linear infinite;
+}
+
+.icon--cloudy-night > path {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--cloudy-night mask path {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--drizzle-day mask path {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--drizzle-day g g {
+  animation: rotate calc(var(--motion-step) * 400) linear infinite;
+}
+
+.icon--drizzle-day g + g {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--drizzle-day g + g path + path {
+  animation: oscillate calc(var(--motion-step) * 10) ease-in-out infinite;
+}
+
+.icon--drizzle-day g + g path + path:nth-of-type(2n + 1) {
+  --oscillation: 0;
+}
+
+.icon--drizzle-night mask path {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--drizzle-night g + g {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--drizzle-night g + g path + path {
+  animation: oscillate calc(var(--motion-step) * 10) ease-in-out infinite;
+}
+
+.icon--drizzle-night g + g path + path:nth-of-type(2n + 1) {
+  --oscillation: 0;
+}
+
+.icon--overcast path {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--pressure path + path {
+  animation: rev calc(var(--motion-step) * 40) ease-in-out infinite;
+}
+
+.icon--rain g {
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+.icon--rain path + path {
+  animation: oscillate calc(var(--motion-step) * 10) ease-in-out infinite;
+}
+
+.icon--rain path + path:nth-of-type(2n + 1) {
+  --oscillation: 0;
+}
+
+.icon--snow path {
+  animation: rotate calc(var(--motion-step) * 400) linear infinite;
+}
+
+.icon--storm path {
+  animation: lightning calc(var(--motion-step) * 40) infinite;
+}
+
+@keyframes lightning {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  47.5% {
+    opacity: 0;
+  }
+  52.5% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  57.5% {
+    opacity: 0;
+  }
+  62.5% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+}
+
+.icon--sunrise g circle + path {
+  --levitation: -2.82842712474619px;
+  animation: levitate calc(var(--motion-step) * 0) ease-in-out infinite;
+}
+
+.icon--sunrise g path {
+  animation: oscillate calc(var(--motion-step) * 0) ease-in-out infinite;
+}
+
+.icon--sunset g circle + path {
+  --levitation: -2.82842712474619px;
+  animation: levitate calc(var(--motion-step) * 0) ease-in-out infinite;
+}
+
+.icon--sunset g path {
+  animation: oscillate calc(var(--motion-step) * 0) ease-in-out infinite;
+}
+
+.icon--wind path:nth-of-type(1) {
+  animation: dash-1 calc(var(--motion-step) * 40) linear infinite;
+}
+
+@keyframes dash-1 {
+  0% {
+    stroke-dashoffset: -28.488862991333008;
+  }
+  20% {
+    stroke-dashoffset: 0;
+  }
+  70% {
+    stroke-dashoffset: 0;
+  }
+  90% {
+    stroke-dashoffset: 28.488862991333008;
+  }
+  100% {
+    stroke-dashoffset: 28.488862991333008;
+  }
+}
+
+.icon--wind path:nth-of-type(2) {
+  animation: dash-2 calc(var(--motion-step) * 40) linear infinite 0.125s;
+}
+
+@keyframes dash-2 {
+  0% {
+    stroke-dashoffset: -44.13630676269531;
+  }
+  20% {
+    stroke-dashoffset: 0;
+  }
+  70% {
+    stroke-dashoffset: 0;
+  }
+  90% {
+    stroke-dashoffset: 44.13630676269531;
+  }
+  100% {
+    stroke-dashoffset: 44.13630676269531;
+  }
+}
+
+.icon--wind path:nth-of-type(3) {
+  animation: dash-3 calc(var(--motion-step) * 40) linear infinite 0.25s;
+}
+
+@keyframes dash-3 {
+  0% {
+    stroke-dashoffset: -25.723560333251953;
+  }
+  20% {
+    stroke-dashoffset: 0;
+  }
+  70% {
+    stroke-dashoffset: 0;
+  }
+  90% {
+    stroke-dashoffset: 25.723560333251953;
+  }
+  100% {
+    stroke-dashoffset: 25.723560333251953;
+  }
+}
+
+.icon--humidity path {
+  animation: animatePath calc(var(--motion-step) * 20) ease-in-out infinite;
+}
+
+@keyframes animatePath {
+  0% {
+    d: path(
+      'M28.25 25C28.25 28.4518 25.4518 31.25 22 31.25C18.5482 31.25 15.75 28.4518 15.75 25C15.75 22.4955 16.7571 20.7833 18.1577 18.9563C18.4383 18.5903 18.7373 18.2174 19.0465 17.8317C20.0148 16.6239 21.0832 15.2913 22 13.6563C22.9168 15.2913 23.9852 16.6239 24.9535 17.8317C25.2627 18.2174 25.5617 18.5903 25.8423 18.9563C27.243 20.7833 28.25 22.4955 28.25 25Z'
+    );
+  }
+  50% {
+    d: path(
+      'M28.25 24.5C28.25 28.0198 25.3869 31.25 22 31.25C18.6131 31.25 15.75 28.0198 15.75 24.5C15.75 22.0082 16.9832 20.0652 18.5641 17.6622C18.5897 17.6232 18.6155 17.5841 18.6413 17.545C19.8029 15.7797 21.1013 13.8068 22 11.297C22.8987 13.8068 24.1971 15.7797 25.3588 17.5449C25.3846 17.5841 25.4103 17.6232 25.4359 17.6622C27.0169 20.0652 28.25 22.0082 28.25 24.5Z'
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon * {
+    animation-play-state: paused !important;
+  }
+
+  .icon:hover *,
+  .icon:focus * {
+    animation-play-state: running !important;
+  }
+}

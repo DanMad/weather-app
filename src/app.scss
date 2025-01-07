@@ -1,0 +1,38 @@
+.layout {
+  padding: var(--space-l) var(--space-m);
+}
+
+@media only screen and (min-width: 30.0625em) {
+  .layout {
+    max-width: 40rem;
+    padding: var(--space-xl) var(--space-l);
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-height: 53.5em) and (min-width: 58.5em) {
+  .layout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    max-width: unset;
+    padding: 0;
+    margin: 0;
+  }
+
+  .layout__inner {
+    position: relative;
+    display: flex;
+    align-items: end;
+    gap: var(--space-xxl);
+    height: 36.5rem;
+    width: 48rem;
+    margin: calc(50vh - 19.625rem) auto;
+  }
+
+  .layout__item {
+    width: 21.375rem;
+  }
+}

@@ -1,0 +1,13 @@
+.header {
+  padding: var(--space-s) 0 calc(var(--space-s) - var(--stroke-size-s));
+  margin-bottom: var(--space-m);
+  border-bottom: var(--stroke-size-s) solid currentColor;
+}
+
+.header__heading {
+  margin: 0;
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: calc(var(--font-size-l) * 0.03);
+  line-height: var(--line-height-l);
+}

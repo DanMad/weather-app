@@ -1,0 +1,60 @@
+.preloader {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% calc(-50% + var(--space-xxl));
+  width: 50%;
+  max-width: 10rem;
+  transition:
+    opacity calc(var(--motion-step) * 6) linear,
+    translate calc(var(--motion-step) * 6) ease-in;
+}
+
+.preloader.ready {
+  opacity: 1;
+  translate: -50% 0;
+}
+
+.preloader__track {
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  height: var(--stroke-size-m);
+  width: 100%;
+}
+
+.preloader__track::before {
+  content: '';
+  opacity: 0.15;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: currentColor;
+}
+
+.preloader__fill {
+  position: absolute;
+  translate: -50% 0;
+  height: 100%;
+  width: 50%;
+  background: currentColor;
+  animation: loading calc(var(--motion-step) * 30) ease-in-out infinite;
+}
+
+// ??
+@keyframes loading {
+  0% {
+    translate: -50% 0;
+  }
+  50% {
+    translate: 150% 0;
+  }
+  100% {
+    translate: -50% 0;
+  }
+}

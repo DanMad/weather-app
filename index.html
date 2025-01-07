@@ -1,0 +1,98 @@
+<!doctype html><html lang="en-AU"><head prefix="og: https://ogp.me/ns#"><meta charset="utf-8"/><title>The Weather</title><meta content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe." name="description"/><meta content="Daniel Maddison" name="author"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><style>@font-face {
+        font-family: 'Host Grotesk';
+        src: url('assets/host-grotesk.woff2') format('woff2-variations');
+        font-weight: 300 800;
+        font-style: normal;
+      }
+
+      * {
+        box-sizing: border-box;
+        user-select: none;
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        --color-black: rgb(0, 0, 0, 0.83);
+        --color-white: rgb(229, 227, 220);
+        --color-uvi-extreme: rgb(170, 112, 230);
+        --color-uvi-very-high: rgb(250, 41, 76);
+        --color-uvi-high: rgb(255, 140, 26);
+        --color-uvi-moderate: rgb(249, 212, 26);
+        --color-uvi-low: rgb(77, 204, 51);
+        --color-scheme-background: var(--color-uvi-low);
+        --color-scheme-foreground: var(--color-black);
+        --font-family: 'Host Grotesk', Helvetica, Arial, sans-serif;
+        --font-feature-settings: 'case' on, 'cpsp' on, 'cv01' on, 'dlig' on,
+          'ss01' on, 'ss02' on, 'ss03' on;
+        --font-variant-numeric: lining-nums proportional-nums;
+        --font-size-xl: 2.841406rem;
+        --font-size-l: 0.984375rem;
+        --font-size-m: 0.875rem;
+        --font-size-s: 0.777778rem;
+        --font-weight-regular: 425;
+        --font-weight-medium: 575;
+        --font-weight-bold: 725;
+        --line-height-xl: 3rem;
+        --line-height-l: 1.5rem;
+        --line-height-m: 1.25rem;
+        --line-height-s: 1rem;
+        --motion-step: 0.05s;
+        --space-xxl: 5.25rem;
+        --space-xl: 3.25rem;
+        --space-l: 2rem;
+        --space-m: 1.25rem;
+        --space-s: 0.75rem;
+        --space-xs: 0.5rem;
+        --space-xxs: 0.25rem;
+        --stroke-size-l: 0.46875rem;
+        --stroke-size-m: 0.1875rem;
+        --stroke-size-s: 0.09375rem;
+
+        margin: 0;
+        background: var(--color-scheme-background);
+        color: var(--color-scheme-foreground);
+        font-family: var(--font-family);
+        font-feature-settings: var(--font-feature-settings);
+        font-variant-numeric: var(--font-variant-numeric);
+        font-weight: var(--font-weight-regular);
+      }
+
+      /*
+        Seems to render inconsitently in Chrome... perhaps browser sniffing
+        is necessary?
+      */
+      @supports (color: color(display-p3 0 0 0)) {
+        body {
+          --color-black: color(display-p3 0 0 0 / 0.83);
+          --color-white: color(display-p3 0.898039 0.890196 0.862745);
+          --color-uvi-extreme: color(display-p3 0.666667 0.439216 0.901961);
+          --color-uvi-very-high: color(display-p3 0.980392 0.160784 0.298039);
+          --color-uvi-high: color(display-p3 1 0.54902 0.101961);
+          --color-uvi-moderate: color(display-p3 0.976471 0.831373 0.101961);
+          --color-uvi-low: color(display-p3 0.301961 0.8 0.2);
+        }
+      }</style><meta content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe." property="og:description"/><meta content="assets/thumbnail.svg" property="og:image"/><meta content="en_AU" property="og:locale"/><meta content="The Weather" property="og:title"/><meta content="website" property="og:type"/><meta content="https://www.weather.danielmaddison.io" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe." name="twitter:description"/><meta content="assets/thumbnail.svg" name="twitter:image"/><meta content="An exhibit of a weather app displaying the forecast, current conditions, and UV Index." name="twitter:image:alt"/><meta content="https://www.weather.danielmaddison.io" name="twitter:site"/><meta content="The Weather" name="twitter:title"/><meta content="index, follow" name="robots"/><link rel="canonical" href="https://www.weather.danielmaddison.io"/><link href="./assets/favicon.ico" rel="icon" sizes="32x32"/><link href="./assets/icon.svg" rel="icon" type="image/svg+xml"/><link href="./assets/apple-touch-icon.png" rel="apple-touch-icon"/><link href="main.97a26a6b9842b83f1364.css" rel="stylesheet"></head><body><h1 style="display: none">Daniel Maddison's Weather App</h1><noscript><div class="error"><h2 class="error__heading">Please enable JavaScript</h2><p class="error__description">To check the weather, please enable JavaScript in your browser settings and refresh the page.</p></div></noscript><main id="root"></main><script>(() => {
+        const defaultColorScheme = `{
+          "background": "var(--color-uvi-low)",
+          "foreground": "var(--color-black)",
+        }`;
+
+        const colorScheme = JSON.parse(
+          window.localStorage.getItem('colorScheme') || defaultColorScheme,
+        );
+
+        document.body.style.setProperty(
+          '--color-scheme-background',
+          colorScheme.background,
+        );
+        document.body.style.setProperty(
+          '--color-scheme-foreground',
+          colorScheme.foreground,
+        );
+      })();</script><script defer="defer" src="main.138aa478fd7ae4cd783a.js"></script></body></html>

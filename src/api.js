@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getForecast = async (location, units) => {
   const params = { location, units };
-  const route = 'https://weather-api-daniel-maddison.vercel.app/forecast';
+  const route = 'https://api.danielmaddison.io/forecast';
 
   const response = await axios.get(route, { params, timeout: 10000 });
 
@@ -47,7 +47,7 @@ const getCurrentPosition = () => {
 
 const getLocation = async (city) => {
   const params = {};
-  const route = 'https://weather-api-daniel-maddison.vercel.app/location';
+  const route = 'https://api.danielmaddison.io/location';
 
   if (city) {
     params.city = city;

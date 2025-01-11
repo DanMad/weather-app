@@ -46,7 +46,6 @@
 }
 
 @for $i from 1 through 26 {
-  // .grid__item:nth-of-type(#{$i}) .icon * {
   :nth-of-type(#{$i}) .icon * {
     animation-delay: calc(var(--motion-step) * #{($i - 1) * 2});
   }
@@ -177,20 +176,20 @@
 
 .icon--sunrise g circle + path {
   --levitation: -2.82842712474619px;
-  animation: levitate calc(var(--motion-step) * 0) ease-in-out infinite;
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
 }
 
 .icon--sunrise g path {
-  animation: oscillate calc(var(--motion-step) * 0) ease-in-out infinite;
+  animation: oscillate calc(var(--motion-step) * 20) ease-in-out infinite;
 }
 
 .icon--sunset g circle + path {
   --levitation: -2.82842712474619px;
-  animation: levitate calc(var(--motion-step) * 0) ease-in-out infinite;
+  animation: levitate calc(var(--motion-step) * 20) ease-in-out infinite;
 }
 
 .icon--sunset g path {
-  animation: oscillate calc(var(--motion-step) * 0) ease-in-out infinite;
+  animation: oscillate calc(var(--motion-step) * 20) ease-in-out infinite;
 }
 
 .icon--wind path:nth-of-type(1) {
@@ -260,10 +259,10 @@
 }
 
 .icon--humidity path {
-  animation: animatePath calc(var(--motion-step) * 20) ease-in-out infinite;
+  animation: animate-path calc(var(--motion-step) * 20) ease-in-out infinite;
 }
 
-@keyframes animatePath {
+@keyframes animate-path {
   0% {
     d: path(
       'M28.25 25C28.25 28.4518 25.4518 31.25 22 31.25C18.5482 31.25 15.75 28.4518 15.75 25C15.75 22.4955 16.7571 20.7833 18.1577 18.9563C18.4383 18.5903 18.7373 18.2174 19.0465 17.8317C20.0148 16.6239 21.0832 15.2913 22 13.6563C22.9168 15.2913 23.9852 16.6239 24.9535 17.8317C25.2627 18.2174 25.5617 18.5903 25.8423 18.9563C27.243 20.7833 28.25 22.4955 28.25 25Z'

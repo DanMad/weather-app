@@ -1,4 +1,5 @@
 const path = require('path');
+const CnameWebpackPlugin = require('cname-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -44,6 +45,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
+    new CnameWebpackPlugin({
+      domain: 'weather.danielmaddison.io',
+    }),
     new CopyWebpackPlugin({
       patterns: [{ from: './public/assets', to: 'assets' }],
     }),

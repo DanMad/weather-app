@@ -24,7 +24,7 @@ module.exports = merge(commonConfig, {
   },
   output: {
     clean: true,
-    filename: '[name].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [

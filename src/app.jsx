@@ -97,7 +97,7 @@ function App() {
             />
           </div>
         </div>
-        <Copyright year={2024} />
+        <Copyright />
       </div>
     </>
   );

@@ -70,24 +70,11 @@ const toFormattedNumber = (number, format = 'en-AU') => {
   return number.toLocaleString(format);
 };
 
-const toRange = (min, max) => {
-  let range = min;
-
-  if (min < max) {
-    range = `${min}–${max}`;
-  } else if (min > max) {
-    range = `${max}–${min}`;
-  }
-
-  return range;
-};
-
 const utils = {
   isEqual,
   isExpiredForecast,
   isSubsetEqual,
   toFormattedNumber,
-  toRange,
 };
 
 export default utils;

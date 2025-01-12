@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import utils from 'helpers/utils';
 import 'components/copyright.scss';
 
 function Copyright(props) {
@@ -17,12 +16,12 @@ function Copyright(props) {
   };
 
   const className = classNames('copyright', { ready: isReady });
-  const range = utils.toRange(dayjs().year(), props.year);
+  const year = props.year || dayjs().year();
 
   return (
     <div className={className} onTransitionEnd={handleTransitionEnd}>
       <span className="copyright__statement">
-        Copyright&nbsp;&copy;&nbsp;{range} Daniel&nbsp;Maddison.
+        Copyright&nbsp;&copy;&nbsp;{year} Daniel&nbsp;Maddison.
         All&nbsp;rights&nbsp;reserved.
       </span>
     </div>

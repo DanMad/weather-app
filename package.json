@@ -10,9 +10,9 @@
     }
   ],
   "scripts": {
-    "build": "webpack --config webpack.prod.config.js",
+    "build": "webpack --config webpack.production.config.js",
     "deploy": "yarn build && gh-pages -d dist",
-    "start": "webpack serve --config webpack.dev.config.js"
+    "start": "webpack serve --config webpack.development.config.js"
   },
   "dependencies": {
     "axios": "^1.6.8",
@@ -34,6 +34,7 @@
     "cname-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^7.1.1",
+    "dotenv-webpack": "^8.1.0",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "^9.1.0",
@@ -53,6 +54,7 @@
     "style-loader": "^4.0.0",
     "webpack": "^5.91.0",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.0.4"
+    "webpack-dev-server": "^5.0.4",
+    "webpack-merge": "^6.0.1"
   }
 }

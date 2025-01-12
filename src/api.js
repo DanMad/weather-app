@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getForecast = async (location, units) => {
   const params = { location, units };
-  const route = 'https://api.danielmaddison.io/forecast';
+  const route = `${process.env.REACT_APP_API_URL}/forecast`;
 
   const response = await axios.get(route, { params, timeout: 10000 });
 
@@ -47,7 +47,7 @@ const getCurrentPosition = () => {
 
 const getLocation = async (city) => {
   const params = {};
-  const route = 'https://api.danielmaddison.io/location';
+  const route = `${process.env.REACT_APP_API_URL}/location`;
 
   if (city) {
     params.city = city;

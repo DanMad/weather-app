@@ -1,5 +1,7 @@
 *.log
 .DS_Store
+.env.development
+.env.production
 dist
 node_modules
 Thumbs.db

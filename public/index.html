@@ -15,13 +15,17 @@
     <style>
       @font-face {
         font-family: 'Host Grotesk';
-        src: url('assets/host-grotesk.woff2') format('woff2-variations');
-        font-weight: 300 800;
         font-style: normal;
+        font-weight: 300 800;
+        src: url('assets/host-grotesk.woff2') format('woff2-variations');
       }
 
       * {
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
 
         scrollbar-width: none;
@@ -73,6 +77,7 @@
         background: var(--color-scheme-background);
         color: var(--color-scheme-foreground);
         font-family: var(--font-family);
+        -webkit-font-feature-settings: var(--font-feature-settings);
         font-feature-settings: var(--font-feature-settings);
         font-variant-numeric: var(--font-variant-numeric);
         font-weight: var(--font-weight-regular);

@@ -1,8 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 import { useInterval } from 'react-use';
-import api from 'api';
-import { Context } from 'provider';
+import api from 'helpers/api';
 import dom from 'helpers/dom';
 import store from 'helpers/store';
 import utils from 'helpers/utils';
@@ -13,6 +12,7 @@ import DailyForecast from 'components/daily-forecast';
 import Error from 'components/error';
 import HourlyForecast from 'components/hourly-forecast';
 import Preloader from 'components/preloader';
+import { Context } from 'components/provider';
 import UvIndex from 'components/uv-index';
 import 'app.scss';
 

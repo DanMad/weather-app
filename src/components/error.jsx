@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Context } from 'provider';
+import { Context } from 'components/provider';
 
 function Error() {
   const context = useContext(Context);

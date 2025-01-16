@@ -9,9 +9,9 @@ import {
   useRef,
   useState,
 } from 'react';
-import { Context } from 'provider';
 import Header from 'components/header';
 import Icon from 'components/icon';
+import { Context } from 'components/provider';
 import Range from 'components/range';
 import 'components/daily-forecast.scss';
 

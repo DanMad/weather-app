@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useContext, useLayoutEffect, useState } from 'react';
-import { Context } from 'provider';
+import { Context } from 'components/provider';
 import 'components/preloader.scss';
 
 function Preloader() {

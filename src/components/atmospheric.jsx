@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
-import { Context } from 'provider';
 import Header from 'components/header';
 import Icon from 'components/icon';
+import { Context } from 'components/provider';
 import utils from 'helpers/utils';
 import 'components/atmospheric.scss';
 

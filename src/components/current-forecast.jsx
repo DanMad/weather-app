@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
-import { Context } from 'provider';
 import Icon from 'components/icon';
+import { Context } from 'components/provider';
 import 'components/current-forecast.scss';
 
 function CurrentForecast(props) {

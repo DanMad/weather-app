@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
-import { Context } from 'provider';
 import Grid from 'components/grid';
 import GridItem from 'components/grid-item';
 import Header from 'components/header';
 import Icon from 'components/icon';
+import { Context } from 'components/provider';
 import 'components/hourly-forecast.scss';
 
 function HourlyForecast(props) {

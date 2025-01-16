@@ -13,23 +13,90 @@
       name="viewport"
     />
     <style>
+      @font-face {
+        font-family: 'Host Grotesk';
+        font-style: normal;
+        font-weight: 300 800;
+        src: url('assets/host-grotesk.woff2') format('woff2-variations');
+      }
+
+      * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
       body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 50px;
+        --color-black: rgb(0, 0, 0, 0.83);
+        --color-white: rgb(229, 227, 220);
+        --color-uvi-extreme: rgb(170, 112, 230);
+        --color-uvi-very-high: rgb(250, 41, 76);
+        --color-uvi-high: rgb(255, 140, 26);
+        --color-uvi-moderate: rgb(249, 212, 26);
+        --color-uvi-low: rgb(77, 204, 51);
+        --color-scheme-background: var(--color-uvi-low);
+        --color-scheme-foreground: var(--color-black);
+        --font-family: 'Host Grotesk', Helvetica, Arial, sans-serif;
+        --font-feature-settings: 'case' on, 'cpsp' on, 'cv01' on, 'dlig' on,
+          'ss01' on, 'ss02' on, 'ss03' on;
+        --font-variant-numeric: lining-nums proportional-nums;
+        --font-size-xl: 2.841406rem;
+        --font-size-l: 0.984375rem;
+        --font-size-m: 0.875rem;
+        --font-size-s: 0.777778rem;
+        --font-weight-regular: 425;
+        --font-weight-medium: 575;
+        --font-weight-bold: 725;
+        --line-height-xl: 3rem;
+        --line-height-l: 1.5rem;
+        --line-height-m: 1.25rem;
+        --line-height-s: 1rem;
+        --motion-step: 0.05s;
+        --space-xxl: 5.25rem;
+        --space-xl: 3.25rem;
+        --space-l: 2rem;
+        --space-m: 1.25rem;
+        --space-s: 0.75rem;
+        --space-xs: 0.5rem;
+        --space-xxs: 0.25rem;
+        --stroke-size-l: 0.46875rem;
+        --stroke-size-m: 0.1875rem;
+        --stroke-size-s: 0.09375rem;
+
+        margin: 0;
+        background: var(--color-scheme-background);
+        color: var(--color-scheme-foreground);
+        font-family: var(--font-family);
+        -webkit-font-feature-settings: var(--font-feature-settings);
+        font-feature-settings: var(--font-feature-settings);
+        font-variant-numeric: var(--font-variant-numeric);
+        font-weight: var(--font-weight-regular);
       }
-      h1 {
-        font-size: 50px;
-      }
-      p {
-        font-size: 20px;
-      }
-      a {
-        color: #007bff;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
+
+      /*
+        Seems to render inconsitently in Chrome... perhaps browser sniffing
+        is necessary?
+      */
+      @supports (color: color(display-p3 0 0 0)) {
+        body {
+          --color-black: color(display-p3 0 0 0 / 0.83);
+          --color-white: color(display-p3 0.898039 0.890196 0.862745);
+          --color-uvi-extreme: color(display-p3 0.666667 0.439216 0.901961);
+          --color-uvi-very-high: color(display-p3 0.980392 0.160784 0.298039);
+          --color-uvi-high: color(display-p3 1 0.54902 0.101961);
+          --color-uvi-moderate: color(display-p3 0.976471 0.831373 0.101961);
+          --color-uvi-low: color(display-p3 0.301961 0.8 0.2);
+        }
       }
     </style>
     <meta
@@ -61,14 +128,43 @@
     <meta content="404 Not Found" name="twitter:title" />
     <meta content="noindex, nofollow" name="robots" />
     <link rel="canonical" href="https://weather.danielmaddison.io/404.html" />
-    <link href="./assets/favicon.ico" rel="icon" sizes="32x32" />
-    <link href="./assets/icon.svg" rel="icon" type="image/svg+xml" />
-    <!-- 180×180 -->
-    <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="./assets/favicon.ico" rel="icon" sizes="48x48" />
+    <link
+      href="./assets/favicon.svg"
+      rel="icon"
+      sizes="any"
+      type="image/svg+xml"
+    />
+    <link
+      href="./assets/apple-touch-icon.png"
+      rel="apple-touch-icon"
+      sizes="180x180"
+    />
   </head>
   <body>
     <h1>404</h1>
     <p>Oops! The page you are looking for does not exist.</p>
     <p><a href="/">Go back to the weather</a></p>
+    <script>
+      (() => {
+        const defaultColorScheme = `{
+          "background": "var(--color-uvi-low)",
+          "foreground": "var(--color-black)",
+        }`;
+
+        const colorScheme = JSON.parse(
+          window.localStorage.getItem('colorScheme') || defaultColorScheme,
+        );
+
+        document.body.style.setProperty(
+          '--color-scheme-background',
+          colorScheme.background,
+        );
+        document.body.style.setProperty(
+          '--color-scheme-foreground',
+          colorScheme.foreground,
+        );
+      })();
+    </script>
   </body>
 </html>

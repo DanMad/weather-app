@@ -1,7 +1,6 @@
 const path = require('path');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+const DotenvWebpack = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { merge } = require('webpack-merge');
 const commonConfig = require('./webpack.common.config.js');
@@ -31,13 +30,7 @@ module.exports = merge(commonConfig, {
     new CnameWebpackPlugin({
       domain: 'weather.danielmaddison.io',
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: './public/assets', to: 'assets' },
-        { from: './public/404.html', to: '404.html' },
-      ],
-    }),
-    new Dotenv({
+    new DotenvWebpack({
       path: './.env.production',
     }),
     new MiniCssExtractPlugin({

@@ -1,3 +1,11 @@
-.*rc
+*.ico
+*.log
+*.png
+*.svg
+.*
+CNAME
 dist
+LICENSE
 node_modules
+Thumbs.db
+yarn.lock

@@ -26,48 +26,52 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      store.removeExpiredForecasts();
+      try {
+        store.removeExpiredForecasts();
 
-      const location = await api.getLocation(city);
-      const forecast = store.isExistingForecast(location, units)
-        ? store.getForecast(location, units)
-        : await api.getForecast(location, units);
+        const location = await api.getLocation(city);
+        const forecast = store.isExistingForecast(location, units)
+          ? store.getForecast(location, units)
+          : await api.getForecast(location, units);
 
-      await dom.setColorScheme(forecast.colorScheme);
-      dom.setTitle(`The Weather in ${location.city}`);
+        await dom.setColorScheme(forecast.colorScheme);
+        dom.setTitle(`The Weather in ${location.city}`);
 
-      context.setForecast(forecast);
+        context.setForecast(forecast);
 
-      // setSearchParams({ city: location.city, units });
+        // setSearchParams({ city: location.city, units });
 
-      store.setColorScheme(forecast.colorScheme);
-      store.setForecast(forecast);
+        store.setColorScheme(forecast.colorScheme);
+        store.setForecast(forecast);
+      } catch (error) {
+        context.setError(error.message);
+      }
     })();
   }, []);
 
-  useInterval(() => {
-    (async () => {
-      console.log('firing interval');
-      if (!utils.isExpiredForecast(context.forecast)) {
-        return;
-      }
+  useInterval(
+    () => {
+      (async () => {
+        if (!utils.isExpiredForecast(context.forecast)) {
+          return;
+        }
 
-      console.log('Expired forecast, fetching new data...');
+        store.removeExpiredForecasts();
 
-      store.removeExpiredForecasts();
+        const location = await api.getLocation(city);
+        const forecast = await api.getForecast(location, units);
 
-      const location = await api.getLocation(city);
-      const forecast = await api.getForecast(location, units);
+        await dom.setColorScheme(forecast.colorScheme);
+        dom.setTitle(`The Weather in ${location.city}`);
 
-      await dom.setColorScheme(forecast.colorScheme);
-      dom.setTitle(`The Weather in ${location.city}`);
+        context.setForecast(forecast);
 
-      context.setForecast(forecast);
-
-      store.setColorScheme(forecast.colorScheme);
-      store.setForecast(forecast);
-    })();
-  }, 60000);
+        store.setColorScheme(forecast.colorScheme);
+        store.setForecast(forecast);
+      })();
+    },
+    context.error ? null : 60000,
+  );
 
   if (!context.isReady) {
     return <Preloader />;

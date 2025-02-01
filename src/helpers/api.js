@@ -4,9 +4,13 @@ const getForecast = async (location, units) => {
   const params = { location, units };
   const route = `${process.env.REACT_APP_API_URL}/forecast`;
 
-  const response = await axios.get(route, { params, timeout: 10000 });
+  try {
+    const response = await axios.get(route, { params, timeout: 10000 });
 
-  return response.data;
+    return response.data;
+  } catch (error) {
+    throw new Error('forecastFailed');
+  }
 };
 
 const getCurrentPosition = () => {
@@ -52,15 +56,23 @@ const getLocation = async (city) => {
   if (city) {
     params.city = city;
   } else {
-    const currentPosition = await getCurrentPosition();
+    try {
+      const currentPosition = await getCurrentPosition();
 
-    params.lat = currentPosition.coords.latitude;
-    params.lon = currentPosition.coords.longitude;
+      params.lat = currentPosition.coords.latitude;
+      params.lon = currentPosition.coords.longitude;
+    } catch (error) {
+      throw new Error('currentPositionDenied');
+    }
   }
 
-  const response = await axios.get(route, { params, timeout: 10000 });
+  try {
+    const response = await axios.get(route, { params, timeout: 10000 });
 
-  return response.data;
+    return response.data;
+  } catch (error) {
+    throw new Error('locationFailed');
+  }
 };
 
 const api = { getForecast, getLocation };

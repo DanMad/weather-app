@@ -5,17 +5,17 @@ const errors = {
   currentPositionDenied: {
     name: "Couldn't Access Your Location",
     description:
-      'We were unable to access your location. Please allow access to your location in your browser settings.',
+      'We were unable to access your location. Please enable location access in your browser settings and try again.',
   },
   locationFailed: {
-    name: "Couldn't get the Location Data",
+    name: "Couldn't get Location Data",
     description:
-      'We were unable to fetch the location data from the server. Please try again later.',
+      'We were unable to fetch location data from the server. Please try again later.',
   },
   forecastFailed: {
-    name: "Couldn't get the Forecast Data",
+    name: "Couldn't get Forecast Data",
     description:
-      'We were unable to fetch the forecast data from the server. Please try again later.',
+      'We were unable to fetch forecast data from the server. Please try again later.',
   },
 };
 

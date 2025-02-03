@@ -117,22 +117,6 @@
         letter-spacing: calc(var(--font-size-l) * 0.03);
         line-height: var(--line-height-l);
       }
-
-      /*
-        Seems to render inconsitently in Chrome... perhaps browser sniffing
-        is necessary?
-      */
-      @supports (color: color(display-p3 0 0 0)) {
-        body {
-          --color-black: color(display-p3 0 0 0 / 0.83);
-          --color-white: color(display-p3 0.898039 0.890196 0.862745);
-          --color-uvi-extreme: color(display-p3 0.666667 0.439216 0.901961);
-          --color-uvi-very-high: color(display-p3 0.980392 0.160784 0.298039);
-          --color-uvi-high: color(display-p3 1 0.54902 0.101961);
-          --color-uvi-moderate: color(display-p3 0.976471 0.831373 0.101961);
-          --color-uvi-low: color(display-p3 0.301961 0.8 0.2);
-        }
-      }
     </style>
     <meta
       content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe."

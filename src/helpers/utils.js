@@ -12,10 +12,6 @@ const isExpiredForecast = (forecast) => {
   const lastUpdated = dayjs.unix(forecast.lastUpdated).tz(forecast.timezone);
   const isExpired = lastUpdated.isBefore(now.startOf('hour'));
 
-  if (isExpired) {
-    console.log('isExpired');
-  }
-
   const sunriseTime = dayjs
     .unix(forecast.current.sunrise)
     .tz(forecast.timezone);
@@ -23,34 +19,18 @@ const isExpiredForecast = (forecast) => {
   const isSunriseEvent =
     now.isAfter(sunriseTime) && now.isBefore(sunriseTime.add(1, 'minute'));
 
-  if (isSunriseEvent) {
-    console.log('isSunriseEvent');
-  }
-
   const isAfterSunriseEvent =
     now.isAfter(sunriseTime.add(20, 'minute')) &&
     now.isBefore(sunriseTime.add(21, 'minute'));
-
-  if (isAfterSunriseEvent) {
-    console.log('isAfterSunriseEvent');
-  }
 
   const sunsetTime = dayjs.unix(forecast.current.sunset).tz(forecast.timezone);
 
   const isSunsetEvent =
     now.isAfter(sunsetTime) && now.isBefore(sunsetTime.add(1, 'minute'));
 
-  if (isSunsetEvent) {
-    console.log('isSunsetEvent');
-  }
-
   const isAfterSunsetEvent =
     now.isAfter(sunsetTime.add(20, 'minute')) &&
     now.isBefore(sunsetTime.add(21, 'minute'));
-
-  if (isAfterSunsetEvent) {
-    console.log('isAfterSunsetEvent');
-  }
 
   return (
     isExpired ||

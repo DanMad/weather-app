@@ -18,7 +18,7 @@ import 'app.scss';
 
 function App() {
   const context = useContext(Context);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const city = searchParams.get('city');
   const units =
@@ -38,8 +38,6 @@ function App() {
         dom.setTitle(`The Weather in ${location.city}`);
 
         context.setForecast(forecast);
-
-        // setSearchParams({ city: location.city, units });
 
         store.setColorScheme(forecast.colorScheme);
         store.setForecast(forecast);

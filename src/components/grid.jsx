@@ -6,7 +6,7 @@ import 'components/grid.scss';
 function Grid(props) {
   const grid = useRef(null);
 
-  const handleResize = () => {
+  const handleResize = debounce(() => {
     grid.current.style.gap = '';
 
     const items = Array.from(grid.current.children);
@@ -52,22 +52,20 @@ function Grid(props) {
       (gridWidth - paddingLeftWidth - visibleItemsWidth) / visibleGapsCount;
 
     grid.current.style.gap = `${gapWidth}px`;
-  };
-
-  const debouncedHandleResize = debounce(handleResize, 100);
+  }, 100);
 
   useLayoutEffect(() => {
     handleResize();
 
-    window.addEventListener('resize', debouncedHandleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', debouncedHandleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, [props.children]);
 
   return (
-    <ul className="grid" ref={grid}>
+    <ul className="grid" ref={grid} tabIndex="1">
       {props.children}
     </ul>
   );

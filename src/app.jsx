@@ -6,9 +6,9 @@ import dom from 'helpers/dom';
 import store from 'helpers/store';
 import utils from 'helpers/utils';
 import Atmospheric from 'components/atmospheric';
-import Copyright from 'components/copyright';
 import CurrentForecast from 'components/current-forecast';
 import DailyForecast from 'components/daily-forecast';
+import Footer from 'components/footer';
 import Error from 'components/error';
 import HourlyForecast from 'components/hourly-forecast';
 import Preloader from 'components/preloader';
@@ -82,7 +82,7 @@ function App() {
   return (
     <>
       <div className="layout">
-        <div className="layout__inner">
+        <main className="layout__inner">
           <div className="layout__item">
             <CurrentForecast
               {...context.forecast.current}
@@ -98,8 +98,8 @@ function App() {
               temp={context.forecast.current.temp}
             />
           </div>
-        </div>
-        <Copyright />
+        </main>
+        <Footer />
       </div>
     </>
   );

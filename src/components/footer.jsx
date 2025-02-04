@@ -2,9 +2,9 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import 'components/copyright.scss';
+import 'components/footer.scss';
 
-function Copyright(props) {
+function Footer(props) {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -15,23 +15,23 @@ function Copyright(props) {
     event.target.style.transition = 'none';
   };
 
-  const className = classNames('copyright', { ready: isReady });
+  const className = classNames('footer', { ready: isReady });
   const year = props.year || dayjs().year();
 
   return (
-    <div className={className} onTransitionEnd={handleTransitionEnd}>
-      <span className="copyright__statement">
-        Copyright&nbsp;&copy;&nbsp;{year} Daniel&nbsp;Maddison.
+    <footer className={className} onTransitionEnd={handleTransitionEnd}>
+      <p className="footer__copyright">
+        Copyright&nbsp;&copy;&nbsp;{year}&nbsp;Daniel&nbsp;Maddison.
         All&nbsp;rights&nbsp;reserved.
-      </span>
-    </div>
+      </p>
+    </footer>
   );
 }
 
-Copyright.displayName = 'Copyright';
+Footer.displayName = 'Footer';
 
-Copyright.propTypes = {
+Footer.propTypes = {
   year: PropTypes.number,
 };
 
-export default Copyright;
+export default Footer;

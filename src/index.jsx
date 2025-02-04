@@ -4,8 +4,8 @@ import { BrowserRouter as Router } from 'react-router';
 import App from 'app';
 import Provider from 'components/provider';
 
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
+const rootNode = document.getElementById('root');
+const root = createRoot(rootNode);
 
 root.render(
   <StrictMode>

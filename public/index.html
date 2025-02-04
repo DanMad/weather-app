@@ -73,6 +73,7 @@
         --stroke-size-m: 0.1875rem;
         --stroke-size-s: 0.09375rem;
 
+        overflow: hidden;
         margin: 0;
         background: var(--color-scheme-background);
         color: var(--color-scheme-foreground);
@@ -85,10 +86,10 @@
 
       .error {
         position: fixed;
-        top: 50%;
-        left: 50%;
+        top: 50dvh;
+        left: 50dvw;
         transform: translate(-50%, -50%);
-        width: calc(100% - var(--space-m * 2));
+        width: calc(100dvw - var(--space-m * 2));
         max-width: 40rem;
         text-align: center;
       }

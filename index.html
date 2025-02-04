@@ -31,7 +31,9 @@
         --color-uvi-low: rgb(77, 204, 51);
         --color-scheme-background: var(--color-uvi-low);
         --color-scheme-foreground: var(--color-black);
-        --font-family: 'Host Grotesk', Helvetica, Arial, sans-serif;
+        --font-family: 'Host Grotesk', system-ui, -apple-system,
+          BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+          sans-serif;
         --font-feature-settings: 'case' on, 'cpsp' on, 'cv01' on, 'dlig' on,
           'ss01' on, 'ss02' on, 'ss03' on;
         --font-variant-numeric: lining-nums proportional-nums;
@@ -58,6 +60,7 @@
         --stroke-size-m: 0.1875rem;
         --stroke-size-s: 0.09375rem;
 
+        overflow: hidden;
         margin: 0;
         background: var(--color-scheme-background);
         color: var(--color-scheme-foreground);
@@ -70,10 +73,10 @@
 
       .error {
         position: fixed;
-        top: 50%;
-        left: 50%;
+        top: 50dvh;
+        left: 50dvw;
         transform: translate(-50%, -50%);
-        width: calc(100% - var(--space-m * 2));
+        width: calc(100dvw - var(--space-m * 2));
         max-width: 40rem;
         text-align: center;
       }
@@ -101,7 +104,7 @@
         font-weight: var(--font-weight-regular);
         letter-spacing: calc(var(--font-size-l) * 0.03);
         line-height: var(--line-height-l);
-      }</style><meta content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe." property="og:description"/><meta content="assets/thumbnail.svg" property="og:image"/><meta content="en_AU" property="og:locale"/><meta content="The Weather" property="og:title"/><meta content="website" property="og:type"/><meta content="https://weather.danielmaddison.io" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe." name="twitter:description"/><meta content="assets/thumbnail.svg" name="twitter:image"/><meta content="An exhibit of a weather app displaying the forecast, current conditions, and UV Index." name="twitter:image:alt"/><meta content="https://weather.danielmaddison.io" name="twitter:site"/><meta content="The Weather" name="twitter:title"/><meta content="index, follow" name="robots"/><link rel="canonical" href="https://weather.danielmaddison.io"/><link href="./assets/favicon.ico" rel="icon" sizes="48x48"/><link href="./assets/favicon.svg" rel="icon" sizes="any" type="image/svg+xml"/><link href="./assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="main.16ad8a00d1212c320658.css" rel="stylesheet"></head><body><h1 style="display: none">Daniel Maddison's Weather App</h1><noscript><div class="error"><h2 class="error__heading">Couldn't Run the App</h2><p class="error__description">We were unable to run the App. Please enable JavaScript in your browser settings and try again.</p></div></noscript><main id="root"></main><script>(() => {
+      }</style><meta content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe." property="og:description"/><meta content="assets/thumbnail.svg" property="og:image"/><meta content="en_AU" property="og:locale"/><meta content="The Weather" property="og:title"/><meta content="website" property="og:type"/><meta content="https://weather.danielmaddison.io" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe." name="twitter:description"/><meta content="assets/thumbnail.svg" name="twitter:image"/><meta content="An exhibit of a weather app displaying the forecast, current conditions, and UV Index." name="twitter:image:alt"/><meta content="https://weather.danielmaddison.io" name="twitter:site"/><meta content="The Weather" name="twitter:title"/><meta content="index, follow" name="robots"/><link rel="canonical" href="https://weather.danielmaddison.io"/><link href="./assets/favicon.ico" rel="icon" sizes="48x48"/><link href="./assets/favicon.svg" rel="icon" sizes="any" type="image/svg+xml"/><link href="./assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="main.750f81998de3c436f116.css" rel="stylesheet"></head><body><h1 style="display: none">Daniel Maddison's Weather App</h1><noscript><div class="error"><h2 class="error__heading">Couldn't Run the App</h2><p class="error__description">We were unable to run the App. Please enable JavaScript in your browser settings and try again.</p></div></noscript><div id="root"></div><script>(() => {
         const defaultColorScheme = `{
           "background": "var(--color-uvi-low)",
           "foreground": "var(--color-black)",
@@ -119,4 +122,4 @@
           '--color-scheme-foreground',
           colorScheme.foreground,
         );
-      })();</script><script defer="defer" src="main.134a5f1cfdb92de541cd.js"></script></body></html>
+      })();</script><script defer="defer" src="main.76ac61ec4c6c777b5195.js"></script></body></html>

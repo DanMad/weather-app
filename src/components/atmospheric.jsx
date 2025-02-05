@@ -15,7 +15,7 @@ function Atmospheric(props) {
     setIsReady(true);
   }, []);
 
-  const className = classNames('atmospheric', { ready: isReady });
+  const className = classNames('atmospheric', { 'is-ready': isReady });
   const pressure = utils.toFormattedNumber(props.pressure);
   const unit = context.forecast.units === 'imperial' ? 'mph' : 'km/h';
 

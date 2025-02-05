@@ -17,7 +17,7 @@ function CurrentForecast(props) {
     event.target.style.transition = 'none';
   };
 
-  const className = classNames('current-forecast', { ready: isReady });
+  const className = classNames('current-forecast', { 'is-ready': isReady });
   const unit = context.forecast.units === 'imperial' ? 'ºF' : 'ºC';
 
   return (

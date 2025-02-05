@@ -15,7 +15,7 @@
     translate calc(var(--motion-step) * 6) ease-out;
 }
 
-.ready .current-forecast__metadata {
+.is-ready .current-forecast__metadata {
   opacity: 1;
   translate: 0 0;
 }
@@ -58,7 +58,7 @@
     translate calc(var(--motion-step) * 6) ease-out calc(var(--motion-step) * 1);
 }
 
-.current-forecast.ready .icon {
+.current-forecast.is-ready .icon {
   opacity: 1;
   translate: 0 0;
 }
@@ -72,7 +72,7 @@
     translate calc(var(--motion-step) * 6) ease-out calc(var(--motion-step) * 2);
 }
 
-.ready .current-forecast__summary {
+.is-ready .current-forecast__summary {
   opacity: 1;
   translate: 0 0;
 }
@@ -85,7 +85,7 @@
     translate: -50% var(--space-xl);
   }
 
-  .ready .current-forecast__metadata {
+  .is-ready .current-forecast__metadata {
     opacity: 1;
     translate: -50% 0;
   }

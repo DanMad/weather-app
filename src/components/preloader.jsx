@@ -17,7 +17,7 @@ function Preloader() {
     context.setIsReady(true);
   };
 
-  const className = classNames('preloader', { ready: isReady });
+  const className = classNames('preloader', { 'is-ready': isReady });
 
   return (
     <div className={className} onTransitionEnd={handleTransitionEnd}>

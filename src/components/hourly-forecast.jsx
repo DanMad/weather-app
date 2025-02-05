@@ -16,7 +16,7 @@ function HourlyForecast(props) {
     setIsReady(true);
   }, []);
 
-  const className = classNames('hourly-forecast', { ready: isReady });
+  const className = classNames('hourly-forecast', { 'is-ready': isReady });
   const unit = context.forecast.units === 'imperial' ? 'ºF' : 'ºC';
 
   return (

@@ -8,7 +8,7 @@
     translate calc(var(--motion-step) * 6) ease-out calc(var(--motion-step) * 3);
 }
 
-.hourly-forecast.ready {
+.hourly-forecast.is-ready {
   opacity: 1;
   translate: 0 0;
 }
@@ -40,7 +40,7 @@
   }
 }
 
-.hourly-forecast.ready .grid__item {
+.hourly-forecast.is-ready .grid__item {
   opacity: 1;
   translate: 0 0;
 }

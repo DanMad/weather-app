@@ -15,7 +15,7 @@ function Footer(props) {
     event.target.style.transition = 'none';
   };
 
-  const className = classNames('footer', { ready: isReady });
+  const className = classNames('footer', { 'is-ready': isReady });
   const year = props.year || dayjs().year();
 
   return (

@@ -70,7 +70,7 @@ function DailyForecast(props) {
     };
   }, [props.daily]);
 
-  const className = classNames('daily-forecast', { ready: isReady });
+  const className = classNames('daily-forecast', { 'is-ready': isReady });
   const unit = context.forecast.units === 'imperial' ? 'ºF' : 'ºC';
 
   return (

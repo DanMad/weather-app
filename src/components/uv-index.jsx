@@ -12,7 +12,7 @@ function UvIndex(props) {
     setIsReady(true);
   }, []);
 
-  const className = classNames('uv-index', { ready: isReady });
+  const className = classNames('uv-index', { 'is-ready': isReady });
 
   return (
     <section className={className}>

@@ -7,7 +7,7 @@
     translate calc(var(--motion-step) * 6) ease-out calc(var(--motion-step) * 1);
 }
 
-.uv-index.ready {
+.uv-index.is-ready {
   opacity: 1;
   translate: 0 0;
 }

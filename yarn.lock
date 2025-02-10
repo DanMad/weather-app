@@ -1900,11 +1900,6 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
-cname-webpack-plugin@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/cname-webpack-plugin/-/cname-webpack-plugin-3.0.0.tgz#07260b0774cbd714b963f71b8f45886893098107"
-  integrity sha512-kL+C2Xwiev19vE5vOpVsUGelnGiebJtap6u9s29IsQ2cEoLcLmSeAiWI0aVsUTRzgOjnLuEmTu+MbqMDKVIjyw==
-
 color-convert@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-2.0.1.tgz#72d3a68d598c9bdb3af2ad1e84f21d896abd4de3"

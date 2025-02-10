@@ -2,11 +2,9 @@
 <html lang="en-AU">
   <head prefix="og: https://ogp.me/ns#">
     <meta charset="utf-8" />
-    <title>The Weather</title>
-    <meta
-      content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe."
-      name="description"
-    />
+    <meta content="<%= referrer %>" name="referrer" />
+    <title><%= title %></title>
+    <meta content="<%= description %>" name="description" />
     <meta content="Daniel Maddison" name="author" />
     <meta
       content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -20,23 +18,7 @@
         src: url('assets/host-grotesk.woff2') format('woff2-variations');
       }
 
-      * {
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-
-      ::-webkit-scrollbar {
-        display: none;
-      }
-
-      body {
+      :root {
         --color-black: rgb(0, 0, 0, 0.83);
         --color-white: rgb(229, 227, 220);
         --color-uvi-extreme: rgb(170, 112, 230);
@@ -74,7 +56,26 @@
         --stroke-size-l: 0.46875rem;
         --stroke-size-m: 0.1875rem;
         --stroke-size-s: 0.09375rem;
+      }
 
+      * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      *::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* html, */
+      body {
         overflow: hidden;
         margin: 0;
         background: var(--color-scheme-background);
@@ -82,21 +83,44 @@
         font-family: var(--font-family);
         -webkit-font-feature-settings: var(--font-feature-settings);
         font-feature-settings: var(--font-feature-settings);
+        -webkit-font-smoothing: antialiased;
         font-variant-numeric: var(--font-variant-numeric);
         font-weight: var(--font-weight-regular);
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .viewport {
+        overflow: auto;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100dvh;
+        width: 100dvw;
       }
 
       .error {
-        position: fixed;
-        top: 50dvh;
-        left: 50dvw;
-        transform: translate(-50%, -50%);
-        width: calc(100dvw - var(--space-m * 2));
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: calc(100% - var(--space-xl) * 2);
         max-width: 40rem;
+        margin: 0 auto;
         text-align: center;
       }
 
-      .error__heading {
+      .error > :first-child {
+        margin-top: 0;
+      }
+
+      .error > :last-child {
+        margin-bottom: 0;
+      }
+
+      /* Needs work */
+      .error__title {
         position: relative;
         margin: 0;
         font-size: var(--font-size-xl);
@@ -105,7 +129,7 @@
         line-height: var(--line-height-xl);
       }
 
-      .error__heading::before {
+      .error__title::before {
         content: ":'(";
         position: absolute;
         bottom: calc(100% + var(--space-l));
@@ -120,60 +144,94 @@
         letter-spacing: calc(var(--font-size-l) * 0.03);
         line-height: var(--line-height-l);
       }
+      /* End needs work */
+
+      @media only screen and (min-width: 30.0625em) {
+        .error {
+          width: calc(100% - var(--space-xxl) * 2);
+        }
+      }
     </style>
-    <meta
-      content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe."
-      property="og:description"
-    />
-    <meta content="assets/thumbnail.svg" property="og:image" />
-    <meta content="en_AU" property="og:locale" />
-    <meta content="The Weather" property="og:title" />
-    <meta content="website" property="og:type" />
-    <meta content="https://weather.danielmaddison.io" property="og:url" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta
-      content="A weather app that displays the forecast, current conditions, and UV Index to help you stay sun-safe."
-      name="twitter:description"
-    />
-    <meta content="assets/thumbnail.svg" name="twitter:image" />
-    <meta
-      content="An exhibit of a weather app displaying the forecast, current conditions, and UV Index."
-      name="twitter:image:alt"
-    />
-    <meta content="https://weather.danielmaddison.io" name="twitter:site" />
-    <meta content="The Weather" name="twitter:title" />
-    <meta content="index, follow" name="robots" />
-    <link rel="canonical" href="https://weather.danielmaddison.io" />
-    <link href="./assets/favicon.ico" rel="icon" sizes="48x48" />
+    <% if (isDevelopment) { %>
+    <style>
+      .env {
+        background: var(--color-scheme-foreground);
+        color: var(--color-scheme-background);
+        font-size: var(--font-size-s);
+        font-weight: var(--font-weight-medium);
+        letter-spacing: calc(var(--font-size-s) * 0.03);
+        line-height: var(--space-l);
+        text-align: center;
+        white-space: nowrap;
+        transition:
+          background calc(var(--motion-step) * 20) linear,
+          color calc(var(--motion-step) * 20) linear;
+      }
+
+      .env > :first-child {
+        margin-top: 0;
+      }
+
+      .env > :last-child {
+        margin-bottom: 0;
+      }
+
+      .env + .viewport {
+        height: calc(100dvh - var(--space-l));
+      }
+    </style>
+    <% } %>
+    <link href="/assets/favicon.ico" rel="icon" sizes="48x48" />
     <link
-      href="./assets/favicon.svg"
+      href="/assets/favicon.svg"
       rel="icon"
       sizes="any"
       type="image/svg+xml"
     />
     <link
-      href="./assets/apple-touch-icon.png"
+      href="/assets/apple-touch-icon.png"
       rel="apple-touch-icon"
       sizes="180x180"
     />
+    <meta content="<%= description %>" property="og:description" />
+    <meta content="<%= image.src %>" property="og:image" />
+    <meta content="en_AU" property="og:locale" />
+    <meta content="<%= title %>" property="og:title" />
+    <meta content="website" property="og:type" />
+    <meta content="<%= url %>" property="og:url" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="<%= description %>" name="twitter:description" />
+    <meta content="<%= image.src %>" name="twitter:image" />
+    <meta content="<%= image.alt %>" name="twitter:image:alt" />
+    <meta content="<%= url %>" name="twitter:site" />
+    <meta content="<%= title %>" name="twitter:title" />
+    <% if (isIndexed) { %>
+    <meta content="index, follow" name="robots" />
+    <link href="<%= url %>" rel="canonical" />
+    <% } else { %>
+    <meta content="noindex, nofollow" name="robots" />
+    <% } %>
   </head>
   <body>
-    <h1 style="display: none">Daniel Maddison's Weather App</h1>
-    <noscript>
-      <div class="error">
-        <h2 class="error__heading">Couldn't Run the App</h2>
+    <% if (isDevelopment) { %>
+    <div aria-hidden="true" class="env">
+      <p>Development Environment v<%= version %></p>
+    </div>
+    <% } %>
+    <div class="viewport" id="root">
+      <noscript class="error">
+        <h2 class="error__title">Unable to Check the&nbsp;Weather</h2>
         <p class="error__description">
-          We were unable to run the App. Please enable JavaScript in your
-          browser settings and try again.
+          To check the weather, please enable JavaScript in your browser
+          settings and try&nbsp;again.
         </p>
-      </div>
-    </noscript>
-    <div id="root"></div>
+      </noscript>
+    </div>
     <script>
       (() => {
         const defaultColorScheme = `{
           "background": "var(--color-uvi-low)",
-          "foreground": "var(--color-black)",
+          "foreground": "var(--color-black)"
         }`;
 
         const colorScheme = JSON.parse(

@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
 import Grid from 'components/grid';
 import GridItem from 'components/grid-item';
@@ -41,16 +40,5 @@ function HourlyForecast(props) {
 }
 
 HourlyForecast.displayName = 'HourlyForecast';
-
-HourlyForecast.propTypes = {
-  hourly: PropTypes.arrayOf(
-    PropTypes.shape({
-      hour: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      temp: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-};
 
 export default HourlyForecast;

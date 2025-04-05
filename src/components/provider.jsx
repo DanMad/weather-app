@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { createContext, useMemo, useState } from 'react';
 
 const Context = createContext();
@@ -23,10 +22,6 @@ function Provider({ children }) {
 }
 
 Provider.displayName = 'Provider';
-
-Provider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Provider;
 export { Context };

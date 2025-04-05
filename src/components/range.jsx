@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import 'components/range.scss';
 
@@ -37,14 +36,5 @@ function Range(props) {
 }
 
 Range.displayName = 'Range';
-
-Range.propTypes = {
-  current: PropTypes.number,
-  high: PropTypes.number.isRequired,
-  low: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired,
-  min: PropTypes.number.isRequired,
-  unit: PropTypes.string.isRequired,
-};
 
 export default Range;

@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import dayjs from 'dayjs';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import 'components/footer.scss';
 
@@ -29,9 +28,5 @@ function Footer(props) {
 }
 
 Footer.displayName = 'Footer';
-
-Footer.propTypes = {
-  year: PropTypes.number,
-};
 
 export default Footer;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import 'components/header.scss';
 
 function Header(props) {
@@ -10,9 +9,5 @@ function Header(props) {
 }
 
 Header.displayName = 'Header';
-
-Header.propTypes = {
-  children: PropTypes.string.isRequired,
-};
 
 export default Header;

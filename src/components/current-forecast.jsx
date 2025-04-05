@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
 import Icon from 'components/icon';
 import { Context } from 'components/provider';
@@ -48,13 +47,5 @@ function CurrentForecast(props) {
 }
 
 CurrentForecast.displayName = 'CurrentForecast';
-
-CurrentForecast.propTypes = {
-  city: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  feelsLike: PropTypes.number.isRequired,
-  icon: PropTypes.string.isRequired,
-  temp: PropTypes.number.isRequired,
-};
 
 export default CurrentForecast;

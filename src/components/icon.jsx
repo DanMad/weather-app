@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useId } from 'react';
 import 'components/icon.scss';
 
@@ -401,10 +400,5 @@ function Icon(props) {
 }
 
 Icon.displayName = 'Icon';
-
-Icon.propTypes = {
-  size: PropTypes.number,
-  type: PropTypes.oneOf(Object.keys(components)).isRequired,
-};
 
 export default Icon;

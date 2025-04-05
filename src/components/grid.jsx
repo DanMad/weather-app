@@ -1,5 +1,4 @@
 import debounce from 'lodash/debounce';
-import PropTypes from 'prop-types';
 import { useLayoutEffect, useRef } from 'react';
 import 'components/grid.scss';
 
@@ -72,9 +71,5 @@ function Grid(props) {
 }
 
 Grid.displayName = 'Grid';
-
-Grid.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Grid;

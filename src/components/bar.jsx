@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useMemo, useState } from 'react';
 import 'components/bar.scss';
 
@@ -40,12 +39,5 @@ function Bar(props) {
 }
 
 Bar.displayName = 'Bar';
-
-Bar.propTypes = {
-  current: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
-  max: PropTypes.number.isRequired,
-  min: PropTypes.number.isRequired,
-};
 
 export default Bar;

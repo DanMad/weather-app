@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import 'components/grid-item.scss';
 
 function GridItem(props) {
@@ -6,9 +5,5 @@ function GridItem(props) {
 }
 
 GridItem.displayName = 'GridItem';
-
-GridItem.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default GridItem;

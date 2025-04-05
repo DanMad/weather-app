@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
 import Header from 'components/header';
 import Icon from 'components/icon';
@@ -48,11 +47,5 @@ function Atmospheric(props) {
 }
 
 Atmospheric.displayName = 'Atmospheric';
-
-Atmospheric.propTypes = {
-  humidity: PropTypes.number.isRequired,
-  pressure: PropTypes.number.isRequired,
-  windSpeed: PropTypes.number.isRequired,
-};
 
 export default Atmospheric;

@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import Bar from 'components/bar';
 import Header from 'components/header';
@@ -25,10 +24,5 @@ function UvIndex(props) {
 }
 
 UvIndex.displayName = 'UvIndex';
-
-UvIndex.propTypes = {
-  uvIndex: PropTypes.number.isRequired,
-  uvRisk: PropTypes.string.isRequired,
-};
 
 export default UvIndex;

@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import {
   useContext,
   useCallback,
@@ -103,18 +102,5 @@ function DailyForecast(props) {
 }
 
 DailyForecast.displayName = 'DailyForecast';
-
-DailyForecast.propTypes = {
-  daily: PropTypes.arrayOf(
-    PropTypes.shape({
-      day: PropTypes.string.isRequired,
-      high: PropTypes.number.isRequired,
-      icon: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      low: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-  temp: PropTypes.number.isRequired,
-};
 
 export default DailyForecast;

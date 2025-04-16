@@ -291,7 +291,7 @@ function Sunrise() {
         x="0"
         y="0"
       >
-        <rect fill="#000" height="32" width="44" />
+        <rect fill="#000" height="30.5" width="44" />
       </mask>
       <g mask={`url(#${id})`}>
         <circle cx="22" cy="28.25" r="6.25" />
@@ -322,7 +322,7 @@ function Sunset() {
         x="0"
         y="0"
       >
-        <rect fill="#000" height="32" width="44" />
+        <rect fill="#000" height="30.5" width="44" />
       </mask>
       <g mask={`url(#${id})`}>
         <circle cx="22" cy="28.25" r="6.25" />

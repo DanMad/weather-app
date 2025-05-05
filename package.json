@@ -12,8 +12,9 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d dist",
-    "start": "webpack serve --config webpack.development.config.js"
+    "deploy": "gh-pages --dir dist",
+    "start": "webpack serve --config webpack.development.config.js",
+    "uninstall": "rm -rf dist node_modules yarn-error.log"
   },
   "dependencies": {
     "axios": "^1.6.8",
